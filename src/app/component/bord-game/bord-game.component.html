@@ -1,0 +1,30 @@
+<div class="board">
+  <p class="cell" style="height: 90px; width: 900px; margin-top: 30px">
+    Tic Tac Toe (XO) Game
+  </p>
+  <!-- <div *ngIf="winner">
+
+    <button  class="reset-button cell" style="height: 90px; width: 500px; margin-top: 30px ;opacity:.8;" (click)="resetGame()"> Winner: {{ winner }}</button>
+
+  </div> -->
+  <div>
+    <div *ngFor="let row of board; let i = index" class="row">
+      <button
+        *ngFor="let cell of row; let j = index"
+        class="cell"
+        (click)="makeMove(i, j)"
+      >
+        {{ cell }}
+      </button>
+    </div>
+  </div>
+
+  <button
+    *ngIf="winner"
+    class="cell"
+    style="height: 90px; width: 500px; margin-top: 30px"
+    (click)="resetGame()"
+  >
+    Winner: {{ winner }}
+  </button>
+</div>
